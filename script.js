@@ -6,16 +6,20 @@ const image2 = document.getElementById('image2');
 const image3 = document.getElementById('image3');
 const textBox = document.getElementById('text-box');
 
+//Color Mode
+const colorMode = (color) => {
+  image1.src = `img/undraw_camping_${color}.svg`;
+  image2.src = `img/undraw_beverage_${color}.svg`;
+  image3.src = `img/undraw_gaming_${color}.svg`;
+}
+
 // Dark Mode
 const darkMode = () => {
   nav.style.backgroundColor = 'rgb(0 0 0 / 50%)';
   textBox.style.backgroundColor = 'rgb(255 255 255 / 50%)';
   toggleIcon.children[0].textContent = 'Dark Mode';
-  toggleIcon.children[1].classList.remove('fa-sun');
-  toggleIcon.children[1].classList.add('fa-moon');
-  image1.src = 'img/undraw_camping_dark.svg';
-  image2.src = 'img/undraw_beverage_dark.svg';
-  image3.src = 'img/undraw_gaming_dark.svg';
+  toggleIcon.children[1].classList.replace('fa-sun', 'fa-moon');
+  colorMode('dark');
   textBox.style.backgroundColor = 'rgb(255 255 255 / 50%)'
 }
 
@@ -24,11 +28,8 @@ const lightMode = () => {
   nav.style.backgroundColor = 'rgb(255 255 255 / 50%)';
   textBox.style.backgroundColor = 'rgb(0 0 0 / 50%)';
   toggleIcon.children[0].textContent = 'Light Mode';
-  toggleIcon.children[1].classList.remove('fa-moon');
-  toggleIcon.children[1].classList.add('fa-sun');
-  image1.src = 'img/undraw_camping_light.svg';
-  image2.src = 'img/undraw_beverage_light.svg';
-  image3.src = 'img/undraw_gaming_light.svg';
+  toggleIcon.children[1].classList.replace('fa-moon', 'fa-sun');
+  colorMode('light');
   textBox.style.backgroundColor = 'rgb(0 0 0 / 50%)'
 }
 
